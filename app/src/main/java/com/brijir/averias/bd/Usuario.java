@@ -4,24 +4,24 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "user")
-public class User {
+public class Usuario {
 
-    public User(){}
+    public Usuario(){}
 
     @DatabaseField(generatedId = true, columnName = "Id", canBeNull = false)
     public int Id;
 
-    @DatabaseField(columnName = "UserId", canBeNull = false)
-    public int UserId;
+    @DatabaseField(columnName = "cedula", canBeNull = false)
+    public String cedula;
 
-    @DatabaseField(columnName = "Name", canBeNull = false)
-    public String Name;
+    @DatabaseField(columnName = "nombre", canBeNull = false)
+    public String nombre;
 
-    @DatabaseField(columnName = "Email", canBeNull = false)
-    public String Email;
+    @DatabaseField(columnName = "correo", canBeNull = false)
+    public String correo;
 
-    @DatabaseField(columnName = "Phone", canBeNull = false)
-    public int Phone;
+    @DatabaseField(columnName = "tel", canBeNull = false)
+    public String tel;
 
     @DatabaseField(columnName = "UserName", canBeNull = false)
     public String UserName;

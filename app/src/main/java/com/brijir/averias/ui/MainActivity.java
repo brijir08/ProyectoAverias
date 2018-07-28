@@ -13,7 +13,7 @@ import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.brijir.averias.R;
 import com.brijir.averias.bd.DatabaseHelper;
-import com.brijir.averias.bd.User;
+import com.brijir.averias.bd.Usuario;
 import com.brijir.averias.helpers.PreferencesManager;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.Where;
@@ -87,20 +87,20 @@ public class MainActivity extends AppCompatActivity {
             String userNameIn = etUserName.getText().toString().trim();
 
             try {
-                Dao<User, Integer> userDao = helperDB.getUserDao();
+                Dao<Usuario, Integer> userDao = helperDB.getUserDao();
                 Where filtro = userDao.queryBuilder()
                         .where()
                         .eq("UserName", userNameIn);
 
-                List<User> users = filtro.query();
-                if (users.size() == 0) {
+                List<Usuario> usuarios = filtro.query();
+                if (usuarios.size() == 0) {
                     Toast.makeText(this, "Este usuario no existe! Favor registrarse.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                User user = users.get(0);
+                Usuario usuario = usuarios.get(0);
                 String passwordIn = etPassword.getText().toString();
-                if(!user.Password.equals(passwordIn)){
+                if(!usuario.Password.equals(passwordIn)){
                     Toast.makeText(MainActivity.this, "Contraseña incorrecta!", Toast.LENGTH_SHORT).show();
                     return;
                 }

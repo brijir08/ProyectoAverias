@@ -10,17 +10,17 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/AddFault"
+            android:id="@+id/btn_AddFault"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="Nueva" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvListFaults"
+            android:id="@+id/rv_ListFaults"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/AddFault"
+            android:layout_below="@id/btn_AddFault"
             android:numColumns="1" />
     </RelativeLayout>
 </ScrollView>

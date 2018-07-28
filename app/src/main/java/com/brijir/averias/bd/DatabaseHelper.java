@@ -12,17 +12,17 @@ import java.sql.SQLException;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
-    private Dao<User, Integer> mUserDao = null;
+    private Dao<Usuario, Integer> mUserDao = null;
     private static int DATABASE_VERSION = 1;
 
     public DatabaseHelper(Context context) {
-        super(context, "ormlite.db", null, DATABASE_VERSION);
+        super(context, "averias.db", null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
         try {
-            TableUtils.createTable(connectionSource, User.class);
+            TableUtils.createTable(connectionSource, Usuario.class);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -31,7 +31,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int oldVersion, int newVersion) {
         try {
-            TableUtils.dropTable(connectionSource, User.class, true);
+            TableUtils.dropTable(connectionSource, Usuario.class, true);
             onCreate(db, connectionSource);
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -44,9 +44,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         super.close();
     }
 
-    public Dao<User, Integer> getUserDao() throws SQLException {
+    public Dao<Usuario, Integer> getUserDao() throws SQLException {
         if (mUserDao == null) {
-            mUserDao = getDao(User.class);
+            mUserDao = getDao(Usuario.class);
         }
         return mUserDao;
     }

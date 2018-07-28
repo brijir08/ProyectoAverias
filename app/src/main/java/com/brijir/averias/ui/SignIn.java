@@ -2,7 +2,6 @@ package com.brijir.averias.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -12,7 +11,7 @@ import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.brijir.averias.R;
 import com.brijir.averias.bd.DatabaseHelper;
-import com.brijir.averias.bd.User;
+import com.brijir.averias.bd.Usuario;
 import com.j256.ormlite.dao.Dao;
 
 import java.util.List;
@@ -70,18 +69,8 @@ public class SignIn extends AppCompatActivity {
         if(validation.validate()) {
             String name = etName.getText().toString().trim();
             String email = etEmail.getText().toString().trim();
-            int phone = 0;
-            try {
-                phone = Integer.parseInt(etPhone.getText().toString().trim());
-            } catch (NumberFormatException ex) { // handle your exception
-                Log.d("SignInID", "Phone error");
-            }
-            int id = 0;
-            try {
-                id = Integer.parseInt(etId.getText().toString().trim());
-            } catch (NumberFormatException ex) { // handle your exception
-                Log.d("SignInID", "Id error");
-            }
+            String phone = etPhone.getText().toString().trim();
+            String id = etId.getText().toString().trim();
             String user = etSUserName.getText().toString();
             String pass = etSPassword.getText().toString();
 
@@ -90,8 +79,8 @@ public class SignIn extends AppCompatActivity {
             }
 
             try {
-                Dao<User, Integer> userDao = helperDB.getUserDao();
-                List<User> usuarios = helperDB.getUserDao().
+                Dao<Usuario, Integer> userDao = helperDB.getUserDao();
+                List<Usuario> usuarios = helperDB.getUserDao().
                         queryBuilder().where().eq("UserName", user.trim()).query();
 
                 if (usuarios.size() > 0) {
@@ -99,15 +88,15 @@ public class SignIn extends AppCompatActivity {
                     return;
                 }
 
-                User newUser = new User();
-                newUser.UserId = id;
-                newUser.Name = name;
-                newUser.Email = email;
-                newUser.Phone = phone;
-                newUser.UserName = user;
-                newUser.Password = pass;
+                Usuario nuevoUsuario = new Usuario();
+                nuevoUsuario.cedula = id;
+                nuevoUsuario.nombre = name;
+                nuevoUsuario.correo = email;
+                nuevoUsuario.tel = phone;
+                nuevoUsuario.UserName = user;
+                nuevoUsuario.Password = pass;
 
-                userDao.createOrUpdate(newUser);
+                userDao.createOrUpdate(nuevoUsuario);
 
                 finish();
             } catch (Exception e) {

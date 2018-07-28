@@ -1,27 +1,25 @@
 package com.brijir.averias.bd;
 
-import java.util.Date;
-
 public class Fault {
 
     private String nombre;
     private String descripcion;
-    private String type;
-    private Location location;
-    private Date date;
-    private User user;
-    private String image;
+    private String tipo;
+    private Ubicacion ubicacion;
+    private String fecha;
+    private Usuario usuario;
+    private String imagen;
 
     public Fault(){}
 
-    public Fault(String nombre, String descripcion, String type, Location location, Date date, User user, String image) {
+    public Fault(String nombre, String descripcion, String tipo, Ubicacion ubicacion, String fecha, Usuario usuario, String imagen) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.type = type;
-        this.location = location;
-        this.date = date;
-        this.user = user;
-        this.image = image;
+        this.tipo = tipo;
+        this.ubicacion = ubicacion;
+        this.fecha = fecha;
+        this.usuario = usuario;
+        this.imagen = imagen;
     }
 
     public String getNombre() {
@@ -40,43 +38,43 @@ public class Fault {
         this.descripcion = descripcion;
     }
 
-    public String getType() {
-        return type;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    public Location getLocation() {
-        return location;
+    public Ubicacion getUbicacion() {
+        return ubicacion;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setUbicacion(Ubicacion ubicacion) {
+        this.ubicacion = ubicacion;
     }
 
-    public Date getDate() {
-        return date;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
-    public User getUser() {
-        return user;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-    public String getImage() {
-        return image;
+    public String getImagen() {
+        return imagen;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }
