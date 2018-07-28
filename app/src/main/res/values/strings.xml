@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Averias</string>
+    <string name="title_activity_home">Home</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to SignIn -->
+    <string name="UserError">Usuario requerido.</string>
+    <string name="PasswordError">Contraseña requerida.</string>
+
+    <!-- Strings related to SignIn -->
+    <string name="NameError">Nombre es requerido.</string>
+    <string name="EmailError">Ingrese un correo válido.</string>
+    <string name="PhoneError">El teléfono debe ser de 8 dígitos.</string>
+    <string name="IdError">La identificación debe ser de 9 dígitos. Ejemplo: 101230456.</string>
+    <string name="SUserError">Usuario es requerido.</string>
+    <string name="SPasswordError">La contraseña debe ser de 8 caractéres incluyendo al menos una mayúscula y una minúscula.</string>
+</resources>
