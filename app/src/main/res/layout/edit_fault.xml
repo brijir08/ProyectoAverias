@@ -9,7 +9,7 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-        <include android:id="@+id/EditFaultToolbar" layout="@layout/toolbar_base" />
+        <include android:id="@+id/EditFaultToolbar" layout="@layout/toolbar_home" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,7 +26,7 @@
                 android:text="Nombre"/>
 
             <EditText
-                android:id="@+id/et_NameFault"
+                android:id="@+id/et_NameFaultE"
                 android:layout_width="0dp"
                 android:layout_weight="60"
                 android:textSize="20sp"
@@ -50,7 +50,7 @@
                 android:text="Descripción"/>
 
             <EditText
-                android:id="@+id/et_DescripcionFault"
+                android:id="@+id/et_DescripcionFaultE"
                 android:layout_width="0dp"
                 android:layout_weight="60"
                 android:textSize="20sp"
@@ -74,7 +74,7 @@
                 android:text="Tipo"/>
 
             <EditText
-                android:id="@+id/et_TipoFault"
+                android:id="@+id/et_TipoFaultE"
                 android:layout_width="0dp"
                 android:layout_weight="60"
                 android:textSize="20sp"
@@ -98,7 +98,7 @@
                 android:text="Latitud"/>
 
             <EditText
-                android:id="@+id/et_LatitudFault"
+                android:id="@+id/et_LatitudFaultE"
                 android:layout_width="0dp"
                 android:layout_weight="60"
                 android:textSize="20sp"
@@ -122,7 +122,7 @@
                 android:text="Longitud"/>
 
             <EditText
-                android:id="@+id/et_LongitudFault"
+                android:id="@+id/et_LongitudFaultE"
                 android:layout_width="0dp"
                 android:layout_weight="60"
                 android:textSize="20sp"
@@ -155,9 +155,10 @@
             android:layout_marginRight="20dp">
 
             <ImageView
-                android:id="@+id/iv_ImageFault"
+                android:id="@+id/iv_ImageFaultE"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="120dp"
+                android:background="@color/colorAccent"/>
         </LinearLayout>
 
         <LinearLayout

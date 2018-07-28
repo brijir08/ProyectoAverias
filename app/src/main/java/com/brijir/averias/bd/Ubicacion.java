@@ -2,27 +2,27 @@ package com.brijir.averias.bd;
 
 public class Ubicacion {
 
-    private Float lat;
-    private Float lon;
+    private String lat;
+    private String lon;
 
-    public Ubicacion(Float lat, Float lon) {
+    public Ubicacion(String lat, String lon) {
         this.lat = lat;
         this.lon = lon;
     }
 
-    public Float getLat() {
+    public String getLat() {
         return lat;
     }
 
-    public void setLat(Float lat) {
+    public void setLat(String lat) {
         this.lat = lat;
     }
 
-    public Float getLon() {
+    public String getLon() {
         return lon;
     }
 
-    public void setLon(Float lon) {
+    public void setLon(String lon) {
         this.lon = lon;
     }
 }

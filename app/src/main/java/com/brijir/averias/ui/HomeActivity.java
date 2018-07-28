@@ -4,22 +4,28 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.brijir.averias.R;
+import com.brijir.averias.bd.Fault;
+import com.brijir.averias.services.FaultService;
+import com.brijir.averias.services.MyServiceManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-public class Home extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements MapFragment.MapInterface {
     @BindView(R.id.vp_Home)
     ViewPager viewPager;
 
@@ -29,7 +35,17 @@ public class Home extends AppCompatActivity {
     @BindView(R.id.tl_Tabs)
     TabLayout tabLayout;
 
-    PagerAdapter pagerAdapter;
+    ViewPagerAdapter pagerAdapter;
+
+    List<Fault> listFaults;
+    FaultFragment faultFragment;
+    MapFragment mapFragment;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadFaults();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +61,28 @@ public class Home extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
         pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(pagerAdapter);
+        faultFragment = new FaultFragment();
+        mapFragment = new MapFragment();
+    }
+
+    private void loadFaults() {
+        FaultService faultService = MyServiceManager.getServiceFault();
+        faultService.getListFault().enqueue(new Callback<List<Fault>>() {
+            @Override
+            public void onResponse(Call<List<Fault>> call, Response<List<Fault>> response) {
+                listFaults = response.body();
+                faultFragment.setListFaults(listFaults);
+                mapFragment.setListFaults(listFaults);
+                pagerAdapter.AddFragment(faultFragment, "Lista Averías");
+                pagerAdapter.AddFragment(mapFragment, "Mapa");
+                viewPager.setAdapter(pagerAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<Fault>> call, Throwable t) {
+                Toast.makeText(HomeActivity.this, "Error al consultar la lista de averías.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -54,10 +91,6 @@ public class Home extends AppCompatActivity {
 
         public ViewPagerAdapter(FragmentManager manager){
             super(manager);
-            Faults faults = new Faults();
-            Map map = new Map();
-            AddFragment(faults, "Lista Averías");
-            AddFragment(map, "Mapa");
         }
 
         public void AddFragment(Fragment fragment, String title){

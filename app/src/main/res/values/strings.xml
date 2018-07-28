@@ -3,7 +3,7 @@
     <string name="title_activity_home">Home</string>
     <string name="title_activity_login">Sign in</string>
 
-    <!-- Strings related to SignIn -->
+    <!-- Strings related to LogIn -->
     <string name="UserError">Usuario requerido.</string>
     <string name="PasswordError">Contraseña requerida.</string>
 
@@ -14,4 +14,27 @@
     <string name="IdError">La identificación debe ser de 9 dígitos. Ejemplo: 101230456.</string>
     <string name="SUserError">Usuario es requerido.</string>
     <string name="SPasswordError">La contraseña debe ser de 8 caractéres incluyendo al menos una mayúscula y una minúscula.</string>
+
+    <!-- Strings related to NewFault -->
+    <string name="NameFault">Nombre es requerido.</string>
+    <string name="DescriptionFault">Descripción es requerida.</string>
+    <string name="TypeFault">Tipo es requerido.</string>
+    <string name="LatitudeFault">Latitud es requerida.</string>
+    <string name="LongitudeFault">Longitud es requerida.</string>
+
+    <!-- API key Google Maps -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyB8iPOuwQKIU1FjSkgTdPFCSLyioJuJ7I0
+    </string>
+
+    <!-- Dialog Map -->
+    <string name="Title">Crear Marcador</string>
+    <string name="Message">Desea crear un nuevo marcador?</string>
+    <string name="Ok">Aceptar</string>
+    <string name="Cancel">Cancelar</string>
+
+    <string name="TitleEdit">Modificar Marcador</string>
+    <string name="MessageEdit">Desea modificar este marcador?</string>
+    <string name="OkEdit">Aceptar</string>
+    <string name="CancelEdit">Cancelar</string>
 </resources>

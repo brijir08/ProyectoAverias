@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_SignIn)
     public void toSignIn() {
-        Intent intentSignIn = new Intent(this, SignIn.class);
+        Intent intentSignIn = new Intent(this, SignInActivity.class);
         startActivity(intentSignIn);
     }
 
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goHome() {
-        Intent goHome = new Intent(this,Home.class);
+        Intent goHome = new Intent(this,HomeActivity.class);
         startActivity(goHome);
     }
 }

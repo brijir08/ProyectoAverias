@@ -17,7 +17,7 @@ public interface FaultService {
     String KEY = "x-api-key: rabArf10E86thWRQ5u4MH3pFXVpiQiXv8jg1c4hO";
 
     @Headers(KEY)
-    @GET("averias")
+    @GET("averias/")
     Call<List<Fault>> getListFault();
 
     @Headers(KEY)
@@ -25,14 +25,14 @@ public interface FaultService {
     Call<Fault> getFault(@Path("id") String id);
 
     @Headers(KEY)
-    @POST("averia/")
+    @POST("averias/")
     Call<Fault> createFault(@Body Fault nuevo);
 
     @Headers(KEY)
-    @POST("averia/{id}")
+    @POST("averias/{id}")
     Call<Fault> editFault(@Path("id") String id, @Body Fault edit);
 
     @Headers(KEY)
-    @DELETE("averia/{id}")
+    @DELETE("averias/{id}")
     Call<ResponseBody> deleteFault(@Path("id") String id);
 }

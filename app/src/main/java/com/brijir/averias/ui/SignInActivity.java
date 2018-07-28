@@ -20,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SignIn extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity {
 
     @BindView(R.id.et_Name)
     EditText etName;
@@ -75,7 +75,7 @@ public class SignIn extends AppCompatActivity {
             String pass = etSPassword.getText().toString();
 
             if (helperDB == null) {
-                helperDB = new DatabaseHelper(SignIn.this);
+                helperDB = new DatabaseHelper(SignInActivity.this);
             }
 
             try {
